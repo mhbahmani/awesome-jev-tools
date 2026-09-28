@@ -6,6 +6,9 @@ This README is the homepage aggregate of the current category files, so the late
 
 A curated list of public projects and developer patterns built on Jev, TypeSafe AI's System One model for typed decisions.
 
+
+
+
 What is Jev?
   Jev is not a chat model. 
   It does not write text or hold conversations. 
@@ -245,7 +248,7 @@ Source file: [`categories/calibration-research.md`](categories/calibration-resea
 - [jevbetter](https://github.com/olanotolu/jevbetter) - Improved scorer: a stronger one-pass scorer over a variable list of text options, using a hashed n-gram encoder, rival-aware attention, and gated heads.
 - [jevlike-esp32](https://github.com/david-cermak/jevlike-esp32) - Edge deployment: exports a jevlike scorer as ESP32 firmware with a C scorer and a host-side check, putting one-pass decisions on a microcontroller.
 - [von](https://github.com/wfzyx/von) - Open alternative: a 395M non-autoregressive System One model that answers typed questions with calibrated probabilities in under 15 ms, positioned as a local drop-in replacement for Jev.
-- [Jebadiah](https://github.com/getainode/jebadiah) - Open replica: Apache-2.0 decision models (27B, 9B, 4B on Qwen bases; bf16, GGUF and MLX) that answer `Choice`, `Noul` and `Score` questions with a probability for every option from one forward pass, and run anywhere: a standalone server with Jev's `/v1/systemone` wire and a playground, a llama.cpp script for the GGUF builds, or AINode (open-source local AI platform).
+- [OneJev](https://github.com/OmniJev/OneJev) - Open models: multimodal System One model in four sizes (0.8B to 27B); typed questions about a screenshot, photo, video or text get a calibrated probability for every option in one forward pass.
 
 ### Infra / SDKs / Integrations
 
