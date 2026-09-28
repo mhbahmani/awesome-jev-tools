@@ -63,12 +63,12 @@ Found something wrong? Open an issue or a pull request — **removal is as valid
 
 - [Classification & Routing](categories/classification-routing.md) — 20 entries
 - [Verification & Guardrails](categories/verification-guardrails.md) — 20 entries
-- [Scoring & Ranking](categories/scoring-ranking.md) — 13 entries
+- [Scoring & Ranking](categories/scoring-ranking.md) — 17 entries
 - [Agent Decisions](categories/agent-decisions.md) — 30 entries
 - [Data Labeling & Curation](categories/data-labeling-curation.md) — 2 entries
 - [Evaluation & Benchmarking](categories/evaluation-benchmarking.md) — 13 entries
-- [Calibration & Research](categories/calibration-research.md) — 18 entries
-- [Infra / SDKs / Integrations](categories/infra-sdks-integrations.md) — 33 entries
+- [Calibration & Research](categories/calibration-research.md) — 21 entries
+- [Infra / SDKs / Integrations](categories/infra-sdks-integrations.md) — 37 entries
 - [Game & Simulation](categories/game-simulation.md) — 8 entries
 - [Finance & Trading](categories/finance-trading.md) — 3 entries
 - [Compliance & Legal](categories/compliance-legal.md) — 1 entry
@@ -170,6 +170,9 @@ Source file: [`categories/scoring-ranking.md`](categories/scoring-ranking.md)
 - [jev.nvim](https://github.com/valentynkit/jev.nvim) - Developer tooling: Neovim plugin that splits the buffer into functions with Treesitter, scores each against a plain-language question with Jev, and ranks answers by probability in quickfix.
 - [jev-reranker](https://github.com/hotchpotch/jev-reranker) - Retrieval and RAG: uses Jev Noul judgments to assess retrieved documents for relevance and usefulness as answer evidence, then sorts results and optionally filters them using a configurable threshold.
 - [jev-skip](https://github.com/valentynkit/jev-skip) - Media: browser extension that reads the YouTube caption track and scores each segment's sponsor probability on the seek bar before the intro ends, reporting 77% of SponsorBlock's sponsor seconds caught over 23 videos at $0.0008 a video.
+- [Refix](https://refix.ai) - Growth: AI that helps your product grow faster on autopilot by running product experiments, SEO, content, and ads.
+- [jevsearch](https://github.com/kylemclaren/jevsearch) - Site search: shadcn/ui ⌘K search block that streams local keyword hits, then sends the top 20 to Jev in one request (a Noul per candidate, a Choice for the best page, a Noul for whether any page answers) to re-order or drop hits, reporting Hit@1 of 83% versus 41% for keyword search alone on 41 labelled queries over the TypeSafe docs (author's benchmark).
+- [JevPDF](https://github.com/kylemclaren/jevpdf) - Document search: browser PDF viewer that extracts each page's lines with pdf.js, asks Jev one Noul per line ("does this line answer the query?") in batches of up to 16 lines sharing the page text as state, and highlights lines ranked by probability as each page returns; only text reaches Jev, through a key-holding proxy.
 - [slop-grader](https://github.com/lukstei/slop-grader) - Content quality: CLI tool that grades text files against custom rulesets for AI slop, grammar, and technical doc quality using Jev scores and line-level flags, then guides an AI agent to auto-fix violations.
 
 ### Agent Decisions
@@ -257,6 +260,8 @@ Source file: [`categories/calibration-research.md`](categories/calibration-resea
 - [jevbetter](https://github.com/olanotolu/jevbetter) - Improved scorer: a stronger one-pass scorer over a variable list of text options, using a hashed n-gram encoder, rival-aware attention, and gated heads.
 - [jevlike-esp32](https://github.com/david-cermak/jevlike-esp32) - Edge deployment: exports a jevlike scorer as ESP32 firmware with a C scorer and a host-side check, putting one-pass decisions on a microcontroller.
 - [von](https://github.com/wfzyx/von) - Open alternative: a 395M non-autoregressive System One model that answers typed questions with calibrated probabilities in under 15 ms, positioned as a local drop-in replacement for Jev.
+- [RSI-Jev](https://github.com/Shanghua-Gao/RSI-Jev) - Trainable replica: 0.8B and 2B open models answering `Noul`, `Choice` and `Score` on the same `POST /v1/systemone` wire format in one forward pass, researched and trained by a recursively self-improving AutoScientists loop that publishes every experiment it ran — 0.662 pooled top-1 against Jev's 0.727 over 2,000 held-out typed decisions, about 10 ms per further decision on a document already read, no confidence bin below its stated probability, and acting on only the top 40% by confidence is 80% correct.
+- [Open Medical Jev](https://github.com/FeiLiuEM/open-medical-jev) - Medical evaluation: two frozen local readers answer one Noul-style yes/no probability per exam option, a fit-free router auto-releases items above the combined-confidence gate and escalates the rest, and a split-conformal candidate set bounds the error - landing within 2 points of hosted Jev on three 600-item national licensing exams with no fine-tuning, no distillation and no corpus.
 - [OneJev](https://github.com/OmniJev/OneJev) - Open models: multimodal System One model in four sizes (0.8B to 27B); typed questions about a screenshot, photo, video or text get a calibrated probability for every option in one forward pass.
 
 ### Infra / SDKs / Integrations
@@ -296,6 +301,9 @@ Source file: [`categories/infra-sdks-integrations.md`](categories/infra-sdks-int
 - [jev-experiments](https://github.com/dabit3/jev-experiments) - Demo collection: 22 latency-focused Jev applications built by Devin, each with its own README and testing notes, spanning shell guards, log sentinels, instant search, reranking, and voice turn-taking.
 - [ruby_decision_model](https://github.com/obie/ruby_decision_model) - Ruby ecosystem: client for decision models such as Jev, so Ruby applications can put typed questions directly to the model.
 - [s1_ruby](https://github.com/innocentdiaz/s1_ruby) - Ruby ecosystem: makes System One measurement, and the collapse that follows it, a Ruby primitive, with a TypeSafe provider behind its own spec suite.
+- [kojev](https://github.com/ItisNoMatter/kojev) - Kotlin ecosystem: Kotlin Multiplatform (JVM, Android, iOS) client for Jev that answers Choice and Score questions as the caller's own enums, with one typed way to read answers, no default thresholds, and offline MockEngine tests.
+- [hunch](https://github.com/steven-shoemaker/hunch) - Python and TypeScript ecosystem: libraries that turn Jev `Choice`, `Score`, and `Noul` questions into functions over lists and DataFrames (classify, score, check, where, extract, pick, rank, verify), with request deduplication, caching, and optional escalation of unsure rows to an LLM that must pick from the same labels; TypeScript port at [hunch-js](https://github.com/steven-shoemaker/hunch-js).
+- [stuntd](https://github.com/bladedevoff/stuntd) - Local runtime / learning proxy: Jev-compatible local server on Laya that also proxies a Jev upstream, records every Choice, Score and Noul decision, trains a head per decision site, and answers live with calibrated confidence, falling back to the upstream below its threshold.
 - [should-i-jev](https://github.com/yzbcs/Should-I-Jev) - Migration tooling: dependency-free CLI that scans LLM logs and code for decision-shaped calls, prices the Jev migration, asks a Jev endpoint which call sites to take (`--jev-selfcheck`), calibrates typed answers against ground truth (ECE, reliability, risk-coverage), and generates a reviewable migration PR with `Choice`/`Score`/`Noul` map sketches.
 
 ### Game & Simulation
