@@ -207,6 +207,7 @@ Source file: [`categories/agent-decisions.md`](categories/agent-decisions.md)
 - [Jevonian](https://github.com/xinyao27/jevonian) - Coding agents: local OpenAI / Anthropic / Responses-compatible proxy where one Jev call answers both the model route and the thinking level for `jevonian/auto` from session state, quota health, candidate capabilities, and cache-switch penalties; deterministic code filters candidates and owns every threshold first, a pinned model or explicit `jevonian/<route>` skips Jev entirely, and each decision lands in a local ledger with the serving model, reason, real token usage, and estimated cost.
 - [jev-pruner](https://github.com/tamaratran/jev-pruner) - Context management: Claude Code plugin that trims long Bash output with Jev before the model ever sees it, keeping terminal noise out of the window.
 - [jev-desktop](https://github.com/yikangy873-gif/jev-desktop) - Computer use: supplies Jev action selection inside Codex Computer Use, choosing among desktop actions rather than asking a language model at every step.
+- [jev-browser-bridge](https://github.com/lexmount/jev-browser-bridge) - Browser agents: plugs any CDP browser into a Jev loop, where a Jev `Choice` picks the operation and its target element each step from candidates read off the DOM rather than the layout, so the same agent runs on Chrome and on engines that never draw a page (Moli, Lightpanda, Kitesurf), passing at least 90% of runs on each of fourteen browsers tested.
 
 ### Data Labeling & Curation
 
