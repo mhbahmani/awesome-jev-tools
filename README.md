@@ -218,6 +218,7 @@ Source file: [`categories/data-labeling-curation.md`](categories/data-labeling-c
 
 - [jev-curate](https://github.com/AkashPriyadarshii/jev-curate) - Dataset engineering: sifts synthetic JSONL and Parquet rows using Jev Noul checks and calibrated confidence scores, streaming passed records and rejections straight to disk.
 - [typeful-triage](https://github.com/cephalization/jev-triage) - Open-source maintenance: multiplayer triage dashboard where Jev answers a fixed set of typed questions per issue — kind, severity, urgency, duplicate, and next step — and every human correction is kept and shown back to the model on later runs.
+- [JevSpan](https://github.com/lzq-0529/jev-span) - Information extraction: zero-shot named entity recognition that splits text at punctuation, asks Jev one `Choice` over every candidate window per entity type, verifies each nominee with a second `Choice` (the type, none, mixed or partial) and settles its boundary with a third, averaging 73.7 strict F1 across 12 Chinese and English NER benchmarks against 72.1 for direct extraction with Qwen3.8-27B.
 
 ### Evaluation & Benchmarking
 
